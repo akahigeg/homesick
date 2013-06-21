@@ -179,6 +179,23 @@ class Homesick < Thor
     end
   end
 
+  desc "load CASTLE", "exec 'pull' and 'symlink'"
+  def load(name = 'dotfiles')
+    pull(name)
+    symlink(name)
+  end
+
+  desc "save CASTLE", "exec 'commit' and 'push'"
+  def save(name = 'dotfiles')
+    commit(name)
+    push(name)
+  end
+
+  desc "add FILE CASTLE", "an alias of 'track'"
+  def add(file, castle = 'dotfiles')
+    track(file, castle)
+  end
+
 
   protected
 
